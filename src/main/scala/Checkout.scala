@@ -62,8 +62,8 @@ class Checkout {
 
   private def applyOffers(itemsGroup: Map[String, Seq[Item]]) : Map[String, BigDecimal] = {
     itemsGroup.map {
-      case ("Apple", appleItems) => "Apple" -> Apple.buyOneGetOneFree(appleItems)
-      case ("Orange", orangeItems) => "Orange" -> Orange.threeForTwo(orangeItems)
+      case ("Apple", appleItems) =>   "Apple" -> Apple.buyOneGetOneFree(appleItems)
+      case ("Orange", orangeItems) =>  "Orange" -> Orange.threeForTwo(orangeItems)
       case ("Banana", bananaItems)  => "Banana" -> Banana.buyOneGetOneFree(bananaItems)
       case (name, items) => name -> items.map(_.price).foldLeft(BigDecimal(0))(_+_)
     }
