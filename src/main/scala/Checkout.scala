@@ -27,12 +27,25 @@ case object Orange extends Item {
   }.sum
 }
 
+case object Banana extends Item {
+
+  override def name: String = "Banana"
+
+  override def price: BigDecimal = 0.20
+  
+  def buyOneGetOneFree (itemAmount: Int): BigDecimal = {
+    Math.ceil(itemAmount.toDouble /2)* price
+  }
+  
+}
+
 class Checkout {
 
   def calculate (items: Seq[String]) : BigDecimal = {
     val itemList = items.map {
       case "Apple" => Apple
       case "Orange" => Orange
+      case "Banana" => Banana  
     }
     val grouped = itemList.groupBy(_.name)
     applyOffers(grouped)
@@ -47,6 +60,7 @@ class Checkout {
         
       }
       case ("Orange", orangeItems) => Orange.threeForTwo(orangeItems)
+      case ("Banana", bananaItems)  => Banana.buyOneGetOneFree(bananaItems.size)
 
     }.sum
   }
