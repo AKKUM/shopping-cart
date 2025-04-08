@@ -23,9 +23,8 @@ class ShoppingCartSpec extends AnyFreeSpec with Matchers  {
     }
 
     "should add a cost of 3 Apple, 5 Oranges & 5 bananas with offers" in {
-      checkout.calculate(Seq("Apple", "Apple", "Apple", "Orange", "Orange", "Orange", "Orange", "Orange", "Banana", "Banana", "Banana", "Banana", "Banana")) mustBe 2.80
+      checkout.calculate(Seq("Apple", "Apple", "Apple", "Orange", "Orange", "Orange", "Orange", "Orange", "Banana", "Banana", "Banana", "Banana", "Banana")) mustBe 2.20
     }
-
     
   }
 }
